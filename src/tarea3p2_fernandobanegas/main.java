@@ -4,6 +4,13 @@
  */
 package tarea3p2_fernandobanegas;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -74,12 +81,22 @@ public class main extends javax.swing.JFrame {
         btn_CargarArbol.setText("Cargar Arbol");
 
         btn_GuardarArbol.setText("Guardar Arbol");
+        btn_GuardarArbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_GuardarArbolActionPerformed(evt);
+            }
+        });
 
         btn_CargarTxt.setText("Cargar en TXT");
 
         btn_GuardarTxt.setText("Guardar en TXT");
 
         jButton7.setText("Salir");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,6 +184,8 @@ public class main extends javax.swing.JFrame {
                     node.setUserObject(d);
                     raiz.add(node);
                     tree.reload();
+                    JOptionPane.showMessageDialog(this, "Departamento creado con exito");
+                    jtf_Info.setText("");
                     
                 }else{
                     JOptionPane.showMessageDialog(this, "Asegurese de escribir bien la informacion");
@@ -207,6 +226,8 @@ public class main extends javax.swing.JFrame {
                             DefaultMutableTreeNode em = new DefaultMutableTreeNode(e);
                             node.add(em);
                             tree.reload();
+                            JOptionPane.showMessageDialog(this, "Empleado creado con exito");
+                            jtf_Info.setText("");
                          
                         }else{
                             JOptionPane.showMessageDialog(this, "No se encontro o no existe el departamento ingresado, intente nuevamente");
@@ -228,6 +249,38 @@ public class main extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btn_CrearEmpleadoActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void btn_GuardarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarArbolActionPerformed
+        // TODO add your handling code here:
+        JFileChooser filechooser = new JFileChooser();
+        filechooser.setDialogTitle("Guardar árbol");
+        
+        filechooser.setSelectedFile(new File("arbol.arb"));
+        DefaultTreeModel tree = (DefaultTreeModel)jt_Arbol.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)tree.getRoot();
+        int res = filechooser.showSaveDialog(this);
+        if (res==JFileChooser.APPROVE_OPTION) {
+            File seleccionado = filechooser.getSelectedFile();
+            boolean append = true;
+            try (ObjectOutputStream oos = new ObjectOutputStream(
+                    new FileOutputStream(seleccionado))) {
+                oos.writeObject(raiz); 
+            
+ 
+            }catch(IOException ex){
+                
+            }
+            
+            
+        }else{
+            System.out.println("Algo Salio mal o se ha cerrado la ventana");
+        }
+    }//GEN-LAST:event_btn_GuardarArbolActionPerformed
 
     /**
      * @param args the command line arguments
