@@ -4,6 +4,10 @@
  */
 package tarea3p2_fernandobanegas;
 
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author Fernando
@@ -15,6 +19,12 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        DefaultTreeModel tree = (DefaultTreeModel) jt_Arbol.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) tree.getRoot();
+        raiz.setUserObject("Camila's Departments");
+        raiz.removeAllChildren();
+        tree.reload();
+
     }
 
     /**
@@ -26,21 +36,198 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_Arbol = new javax.swing.JTree();
+        jLabel2 = new javax.swing.JLabel();
+        jtf_Info = new javax.swing.JTextField();
+        btn_CrearEmpleado = new javax.swing.JButton();
+        btn_CrearDepartamento = new javax.swing.JButton();
+        btn_CargarArbol = new javax.swing.JButton();
+        btn_GuardarArbol = new javax.swing.JButton();
+        btn_CargarTxt = new javax.swing.JButton();
+        btn_GuardarTxt = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("CAMILA'S - GESTION DE DEPARTAMENTOS");
+
+        jScrollPane1.setViewportView(jt_Arbol);
+
+        jLabel2.setText("Ingrese la informacion requerida : ");
+
+        btn_CrearEmpleado.setText("Crear Empleado");
+        btn_CrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CrearEmpleadoActionPerformed(evt);
+            }
+        });
+
+        btn_CrearDepartamento.setText("Crear Departamento");
+        btn_CrearDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CrearDepartamentoActionPerformed(evt);
+            }
+        });
+
+        btn_CargarArbol.setText("Cargar Arbol");
+
+        btn_GuardarArbol.setText("Guardar Arbol");
+
+        btn_CargarTxt.setText("Cargar en TXT");
+
+        btn_GuardarTxt.setText("Guardar en TXT");
+
+        jButton7.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jtf_Info)
+                                    .addComponent(btn_CrearDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                                    .addComponent(btn_CrearEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_GuardarArbol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_CargarArbol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_GuardarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_CargarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtf_Info, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(btn_CrearDepartamento)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_CrearEmpleado)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_GuardarArbol)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_CargarArbol)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_GuardarTxt)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_CargarTxt)
+                        .addGap(112, 112, 112)
+                        .addComponent(jButton7)
+                        .addGap(47, 47, 47))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_CrearDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearDepartamentoActionPerformed
+        // TODO add your handling code here:
+        if (jtf_Info.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Asegurese de que se haya ingresado algo");
+            
+        } else {
+            
+            if (!jtf_Info.getText().contains("-")) {
+                JOptionPane.showMessageDialog(this, "Asegurese de escribir bien la informacion");
+                jtf_Info.setText("");
+            } else {
+                String info = jtf_Info.getText().trim();
+                String[] textos = info.split("-");
+                if (textos.length == 3) {
+                    String id = textos[0];
+                    String nombre = textos[1];
+                    String fecha = textos[2];
+                    Departamento d = new Departamento(id, fecha, nombre);
+                    DefaultMutableTreeNode node = new DefaultMutableTreeNode();
+                    DefaultTreeModel tree = (DefaultTreeModel) jt_Arbol.getModel();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) tree.getRoot();
+                    node.setUserObject(d);
+                    raiz.add(node);
+                    tree.reload();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(this, "Asegurese de escribir bien la informacion");
+                    jtf_Info.setText("");
+                    
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_btn_CrearDepartamentoActionPerformed
+
+    private void btn_CrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearEmpleadoActionPerformed
+        // TODO add your handling code here:
+                if (jtf_Info.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Asegurese de que se haya ingresado algo");
+            
+        } else {
+            
+            if (!jtf_Info.getText().contains("-")) {
+                JOptionPane.showMessageDialog(this, "Asegurese de escribir bien la informacion");
+                jtf_Info.setText("");
+            } else {
+                String info = jtf_Info.getText().trim();
+                String[] textos = info.split("-");
+                if (textos.length == 4) {
+                    String id = textos[0];
+                    String nombre = textos[1];
+                    String departamento = textos[2];
+                    double salario = Integer.parseInt(textos[3]);
+                    DefaultTreeModel tree = (DefaultTreeModel)jt_Arbol.getModel();
+                    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)tree.getRoot();
+                    for (int i = 0; i < raiz.getChildCount(); i++) {
+                        DefaultMutableTreeNode node = (DefaultMutableTreeNode)raiz.getChildAt(i);
+                        Departamento x = (Departamento)node.getUserObject();
+                        if (x.getNombre().equals(departamento)) {
+                            Empleado e = new Empleado(id, nombre, departamento, salario);
+                            DefaultMutableTreeNode em = new DefaultMutableTreeNode(e);
+                            node.add(em);
+                            tree.reload();
+                         
+                        }else{
+                            JOptionPane.showMessageDialog(this, "No se encontro o no existe el departamento ingresado, intente nuevamente");
+                            jtf_Info.setText("");
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    
+                }else{
+                    JOptionPane.showMessageDialog(this, "Asegurese de escribir bien la informacion");
+                    jtf_Info.setText("");
+                    
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_btn_CrearEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +265,17 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_CargarArbol;
+    private javax.swing.JButton btn_CargarTxt;
+    private javax.swing.JButton btn_CrearDepartamento;
+    private javax.swing.JButton btn_CrearEmpleado;
+    private javax.swing.JButton btn_GuardarArbol;
+    private javax.swing.JButton btn_GuardarTxt;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTree jt_Arbol;
+    private javax.swing.JTextField jtf_Info;
     // End of variables declaration//GEN-END:variables
 }
